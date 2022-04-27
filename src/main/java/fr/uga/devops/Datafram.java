@@ -312,4 +312,37 @@ public class Datafram{
 		printf(datafram2);
 		return datafram2;
        }
+       
+       public float maximum(Colonne c) throws Exception {
+	       float max = 0;
+	       if(c.getType().equals("Integer") || c.getType().equals("Float")){
+	       	float newVal = 0;
+		    	for(int i = 0; i < c.getSize(); i++){
+		        	newVal = Float.parseFloat(c.getLignes().get(i).toString());
+		        	if(max < newVal){
+		            		max = newVal;
+		        	}
+		    	}
+		}else{
+		    throw new Exception("Erreur la colonne n'est pas en Integer ou en float");
+		}
+		return max;
+    	}
+
+    	public float minimum(Colonne c) throws Exception {
+		float min = 0;
+		if(c.getType().equals("Integer") || c.getType().equals("Float")){
+		    float newVal = 0;
+		    min = Float.parseFloat(c.getLignes().get(0).toString());
+		    for(int i = 1; i < c.getSize(); i++){
+		        newVal = Float.parseFloat(c.getLignes().get(i).toString());
+		        if(min > newVal){
+		            min = newVal;
+		        }
+		    }
+		}else{
+		    throw new Exception("Erreur la colonne n'est pas en Integer ou en float");
+		}
+		return min;
+    	}
 }

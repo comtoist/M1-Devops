@@ -205,9 +205,32 @@ public class TestDatafram {
 		    }
 		}
 	 }
+	 
+	 
+	@Test
+        public void maximumTest() throws Exception{
+        	float max = d.maximum(d.datafram.get(3));
+        	assertEquals(65, max);
+    	}
 
+    	@Test
+    	public void maximumTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float maximum = d.somme(d.datafram.get(2));
+        	});
+    	}
 
-        
-        
+    	@Test
+    	public void minimumTest() throws Exception{
+        	float min = d.minimum(d.datafram.get(3));
+        	assertEquals(15, min);
+    	}
+
+    	@Test
+    	public void minimumTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float minimum = d.somme(d.datafram.get(2));
+        	});
+    	}        
 }
 
