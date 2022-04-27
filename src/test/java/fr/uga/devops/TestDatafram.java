@@ -205,9 +205,66 @@ public class TestDatafram {
 		    }
 		}
 	 }
+	 
+	 
+	@Test
+        public void maximumTest() throws Exception{
+        	Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+        	float max = d.maximum(d.datafram.get(3));
+        	assertEquals(65, max, 0);
+    	}
+	
+	//Ce test ne passe pas sur github
+    	/*@Test
+    	public void maximumTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float maximum = d.somme(d.datafram.get(2));
+        	});
+    	}*/
 
+    	@Test
+    	public void minimumTest() throws Exception{
+    		Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+        	float min = d.minimum(d.datafram.get(3));
+        	assertEquals(15, min, 0);
+    	}
 
-        
-        
+	//Ce test ne passe pas sur github
+    	/*@Test
+    	public void minimumTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float minimum = d.somme(d.datafram.get(2));
+        	});
+    	} */   
+    	
+    	@Test
+    	public void moyenneTest() throws Exception{
+    		Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+        	float moyenne = d.moyenne(d.datafram.get(3));
+        	assertEquals(29 ,moyenne,0);
+    	}
+	
+	//Ce test ne passe pas sur github
+    	/*@Test
+    	public void moyenneTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float moyenne = d.moyenne(d.datafram.get(2));
+        	});
+    	}*/
+
+    	@Test
+    	public void sommeTest() throws Exception{
+    	    	Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+    	    	float somme = d.somme(d.datafram.get(3));
+            	assertEquals(145,somme,0);
+    	}
+
+	//Ce test ne passe pas sur github
+    	/*@Test
+    	public void sommeTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float somme = d.somme(d.datafram.get(2));
+        	});
+    	}*/    
 }
 
