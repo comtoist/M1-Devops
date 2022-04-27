@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Datafram.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">datafram-app</a> &gt; <a href="index.source.html" class="el_package">fr.uga.devops</a> &gt; <span class="el_source">Datafram.java</span></div><h1>Datafram.java</h1><pre class="source lang-java linenums">package fr.uga.devops;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Datafram.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">datafram-app</a> &gt; <a href="index.source.html" class="el_package">fr.uga.devops</a> &gt; <span class="el_source">Datafram.java</span></div><h1>Datafram.java</h1><pre class="source lang-java linenums">package fr.uga.devops;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -131,5 +131,145 @@ public class Datafram{
 <span class="fc" id="L131">        }</span>
 
 
+        public void printf(ArrayList&lt;Colonne&gt; dat){
+            //On suppose que les colonnes font toutes la meme taille
+<span class="fc" id="L136">            String titleTemplate = &quot;%-20s &quot;;</span>
+<span class="fc" id="L137">            int columnSize = dat.get(0).getSize();</span>
+<span class="fc" id="L138">            int nbColonnes = dat.size();</span>
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+<span class="fc bfc" id="L143" title="All 2 branches covered.">            for(int i=0;i&lt;nbColonnes;i++){</span>
+<span class="fc" id="L144">                String label = dat.get(i).getLabel();</span>
+<span class="fc" id="L145">                System.out.printf(titleTemplate,label+&quot; &quot;);</span>
+            }
+<span class="fc" id="L147">            System.out.println();</span>
+
+            //Affichages des colonnes            
+<span class="fc bfc" id="L150" title="All 2 branches covered.">            for(currentLine=0;currentLine&lt;columnSize;currentLine++){</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">                for(int j=0;j&lt;nbColonnes;j++){</span>
+<span class="fc" id="L152">                    System.out.printf(titleTemplate,dat.get(j).get(currentLine));</span>
+                }
+<span class="fc" id="L154">                System.out.println();</span>
+                
+            }
+<span class="fc" id="L157">        }</span>
+
+        //Affiche les 5 dernieres lignes
+        public void tail(){
+<span class="nc" id="L161">            String titleTemplate = &quot;%-20s &quot;;</span>
+<span class="nc" id="L162">            int columnSize = datafram.get(0).getSize();</span>
+<span class="nc" id="L163">            int nbColonnes = datafram.size();</span>
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+<span class="nc bnc" id="L168" title="All 2 branches missed.">            for(int i=0;i&lt;nbColonnes;i++){</span>
+<span class="nc" id="L169">                String label = datafram.get(i).getLabel();</span>
+<span class="nc" id="L170">                System.out.printf(titleTemplate,label+&quot; &quot;);</span>
+            }
+<span class="nc" id="L172">            System.out.println();</span>
+
+            //Affichages des colonnes            
+<span class="nc bnc" id="L175" title="All 2 branches missed.">            for(currentLine=columnSize-5;currentLine&lt;columnSize;currentLine++){</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                for(int j=0;j&lt;nbColonnes;j++){</span>
+<span class="nc" id="L177">                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));</span>
+                }
+<span class="nc" id="L179">                System.out.println();</span>
+                
+            }
+
+<span class="nc" id="L183">        }</span>
+
+        //Affiche les n dernieres lignes
+        public void tail(int n){
+<span class="fc" id="L187">            String titleTemplate = &quot;%-20s &quot;;</span>
+<span class="fc" id="L188">            int columnSize = datafram.get(0).getSize();</span>
+<span class="fc" id="L189">            int nbColonnes = datafram.size();</span>
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+<span class="fc bfc" id="L194" title="All 2 branches covered.">            for(int i=0;i&lt;nbColonnes;i++){</span>
+<span class="fc" id="L195">                String label = datafram.get(i).getLabel();</span>
+<span class="fc" id="L196">                System.out.printf(titleTemplate,label+&quot; &quot;);</span>
+            }
+<span class="fc" id="L198">            System.out.println();</span>
+
+            //Verification index &gt;0
+<span class="fc" id="L201">            int resOk = columnSize-n;</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">            if(resOk&lt;0){</span>
+<span class="fc" id="L203">                resOk=0;</span>
+            }   
+            //Affichages des colonnes    
+<span class="fc bfc" id="L206" title="All 2 branches covered.">            for(currentLine=resOk;currentLine&lt;columnSize;currentLine++){</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">                for(int j=0;j&lt;nbColonnes;j++){</span>
+<span class="fc" id="L208">                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));</span>
+                }
+<span class="fc" id="L210">                System.out.println();</span>
+                
+            }
+
+<span class="fc" id="L214">        }</span>
+
+        //Affiche les 5 premieres lignes
+        public void head(){
+<span class="nc" id="L218">            String titleTemplate = &quot;%-20s &quot;;</span>
+<span class="nc" id="L219">            int columnSize = datafram.get(0).getSize();</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">            if(columnSize&gt;5){</span>
+<span class="nc" id="L221">                columnSize=5;</span>
+            }
+<span class="nc" id="L223">            int nbColonnes = datafram.size();</span>
+            
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+<span class="nc bnc" id="L229" title="All 2 branches missed.">            for(int i=0;i&lt;nbColonnes;i++){</span>
+<span class="nc" id="L230">                String label = datafram.get(i).getLabel();</span>
+<span class="nc" id="L231">                System.out.printf(titleTemplate,label+&quot; &quot;);</span>
+            }
+<span class="nc" id="L233">            System.out.println();</span>
+
+            //Affichages des colonnes            
+<span class="nc bnc" id="L236" title="All 2 branches missed.">            for(currentLine=0;currentLine&lt;columnSize;currentLine++){</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">                for(int j=0;j&lt;nbColonnes;j++){</span>
+<span class="nc" id="L238">                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));</span>
+                }
+<span class="nc" id="L240">                System.out.println();</span>
+                
+            }
+
+<span class="nc" id="L244">        }</span>
+
+        //Affiche les n premieres lignes
+        public void head(int n){
+<span class="fc" id="L248">            String titleTemplate = &quot;%-20s &quot;;</span>
+<span class="fc" id="L249">            int columnSize = datafram.get(0).getSize();;</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">            if(n&lt;columnSize){</span>
+<span class="fc" id="L251">                columnSize = n;</span>
+            }
+<span class="fc" id="L253">            int nbColonnes = datafram.size();</span>
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+<span class="fc bfc" id="L258" title="All 2 branches covered.">            for(int i=0;i&lt;nbColonnes;i++){</span>
+<span class="fc" id="L259">                String label = datafram.get(i).getLabel();</span>
+<span class="fc" id="L260">                System.out.printf(titleTemplate,label+&quot; &quot;);</span>
+            }
+<span class="fc" id="L262">            System.out.println();</span>
+
+            //Affichages des colonnes            
+<span class="fc bfc" id="L265" title="All 2 branches covered.">            for(currentLine=0;currentLine&lt;columnSize;currentLine++){</span>
+<span class="fc bfc" id="L266" title="All 2 branches covered.">                for(int j=0;j&lt;nbColonnes;j++){</span>
+<span class="fc" id="L267">                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));</span>
+                }
+<span class="fc" id="L269">                System.out.println();</span>
+                
+            }
+
+<span class="fc" id="L273">        }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
