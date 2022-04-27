@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
-<testsuite tests="12" failures="0" name="fr.uga.devops.TestColonne" time="0.002" errors="0" skipped="0">
-=======
-<testsuite tests="12" failures="0" name="fr.uga.devops.TestColonne" time="0.008" errors="0" skipped="0">
->>>>>>> 58fb255617a6fcb8e141882c9d291c49d95f17bd
+<testsuite tests="12" failures="0" name="fr.uga.devops.TestColonne" time="0.019" errors="0" skipped="0">
   <properties>
     <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,30 +60,16 @@
     <property name="java.vendor.version" value="Temurin-11.0.14.1+1"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-<<<<<<< HEAD
-  <testcase classname="fr.uga.devops.TestColonne" name="add" time="0.001"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="get" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="getType" time="0.001"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="setType" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="setLabel" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="NoArgConstructor" time="0"/>
-=======
   <testcase classname="fr.uga.devops.TestColonne" name="setType" time="0.003"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="NoArgConstructor" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorString" time="0"/>
->>>>>>> 58fb255617a6fcb8e141882c9d291c49d95f17bd
-  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorInteger" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="setLabel" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="DoubleArgsConstructor" time="0"/>
   <testcase classname="fr.uga.devops.TestColonne" name="getLabelTest" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="add2args" time="0"/>
-<<<<<<< HEAD
+  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorString" time="0.001"/>
   <testcase classname="fr.uga.devops.TestColonne" name="DoubleArgsConstructor" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorString" time="0"/>
-=======
+  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorInteger" time="0.004"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="setLabel" time="0.001"/>
   <testcase classname="fr.uga.devops.TestColonne" name="getSizeTest" time="0.001"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="add2args" time="0.001"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="NoArgConstructor" time="0.002"/>
   <testcase classname="fr.uga.devops.TestColonne" name="add" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="get" time="0.001"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="getType" time="0.003"/>
->>>>>>> 58fb255617a6fcb8e141882c9d291c49d95f17bd
+  <testcase classname="fr.uga.devops.TestColonne" name="get" time="0.002"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="getType" time="0.004"/>
 </testsuite>
