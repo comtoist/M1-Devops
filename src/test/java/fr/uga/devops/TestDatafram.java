@@ -121,6 +121,21 @@ public class TestDatafram {
 			e.printStackTrace();
 		}
 	}
+
+    @Test
+	public void testHeadNoArgs(){
+	    Integer[] tab = {1,2,3,4,5};
+        Datafram d = new Datafram(tab,"Chiffre");
+	    d.head();
+	}
+
+    @Test
+	public void testTailNoArgs(){
+	    Integer[] tab = {1,2,3,4,5};
+        Datafram d = new Datafram(tab,"Chiffre");
+	    d.tail();
+	}
+	
 	
 	@Test
 	public void testHeadOk(){
