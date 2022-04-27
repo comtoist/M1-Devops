@@ -4,8 +4,7 @@ import static org.junit.Assert.*;
 
 public class TestDatafram {
     public Datafram data;
-
-    
+   
     @Test
     public void testConstructeurCsv(){
         Datafram d = new Datafram("src/main/resources/csvTest.csv");
@@ -164,6 +163,48 @@ public class TestDatafram {
             Datafram d = new Datafram(tab,"Chiffre");
 	    d.tail(9);
 	}
+
+	@Test
+    	public void newDataframTest() throws Exception{
+		Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+		ArrayList<Colonne> d2 = d.newDatafram(d.datafram, "1,2,3,4", "Nom,prenom");
+		Datafram d3 = new Datafram("src/main/resources/newDataframTest.csv");
+
+		//Test du nombre de colonne
+		assertEquals(d3.datafram.size(), d2.size());
+		for(int i = 0; i < d2.size(); i++){
+		    Colonne c1 = d2.get(i);
+		    Colonne c2 = d3.datafram.get(i);
+		    assertEquals(c2.getSize(), c1.getSize());
+		    assertEquals(c2.getLabel(), c1.getLabel());
+		    assertEquals(c2.getType(), c1.getType());
+		    for(int j = 0; j < d2.get(i).getSize(); j++){
+		        assertEquals(c2.getLignes().get(j), c1.getLignes().get(j));
+		    }
+		}
+    	}
+    	
+    	@Test
+    	public void newDataframTestWithInteger() throws Exception{
+		Datafram d = new Datafram("src/main/resources/csvTest3.csv");
+		ArrayList<Colonne> d2 = da.newDatafram(da.datafram, "1,2,4,5", "Nom,prenom,age");
+		Datafram d3 = new Datafram("src/main/resources/newDataframTestInteger.csv");
+
+		//Test du nombre de colonne
+		assertEquals(d3.datafram.size(), d2.size());
+		for(int i = 0; i < d2.size(); i++){
+		    Colonne c1 = d2.get(i);
+		    Colonne c2 = d3.datafram.get(i);
+		    assertEquals(c2.getSize(), c1.getSize());
+		    assertEquals(c2.getLabel(), c1.getLabel());
+		    assertEquals(c2.getType(), c1.getType());
+		    for(int j = 0; j < d2.get(i).getSize(); j++){
+		        assertEquals(c2.getLignes().get(j), c1.getLignes().get(j));
+		    }
+		}
+    	}
+    	
+
 
 
         

@@ -77,6 +77,7 @@ public class Datafram{
                 //System.out.println(line);
             while(scLine.hasNext()){
                 text = scLine.next();
+                text = text.replaceAll("\\R", "");
                 Colonne col;
                 if(text.equals("String")){
                     col = new Colonne<String>();
@@ -99,6 +100,7 @@ public class Datafram{
             scLine.useDelimiter(",");
             while(scLine.hasNext()){
                 text = scLine.next();
+                text = text.replaceAll("\\R", "");
                 Colonne col = datafram.get(i);
                 col.setLabel(text);
                 i++;
@@ -110,6 +112,7 @@ public class Datafram{
 
             while(sc.hasNext()){
                 text = sc.next();
+                text = text.replaceAll("\\R", "");
                 if(i == nbCol){
                     i=0;
                 }
@@ -129,6 +132,44 @@ public class Datafram{
             e.printStackTrace();
         }
         }
+        
+    public ArrayList<Colonne> newDatafram(ArrayList<Colonne> datafram, String line, String col){
+        ArrayList<Colonne> datafram2 = new ArrayList<>();
+        Scanner scline = new Scanner(line);
+        scline.useDelimiter(",");
+        String text;
+        ArrayList<String> TabLine = new ArrayList<>();
+        while(scline.hasNext()){
+            text = scline.next();
+            TabLine.add(text);
+        }
+
+        Scanner scCol = new Scanner(col);
+        scCol.useDelimiter(",");
+        ArrayList<String> TabIndex = new ArrayList<>();
+        while(scCol.hasNext()){
+            text = scCol.next();
+            TabIndex.add(text);
+        }
+
+        for(int i = 0; i < TabIndex.size(); i++){
+            int k = 0;
+            while(!(datafram.get(k).getLabel().equals(TabIndex.get(i)))){
+                k++;
+            }
+            Colonne c = datafram.get(k);
+            Colonne newC = new Colonne(c.getLabel());
+            newC.setType(c.getType());
+            newC.setLabel(c.getLabel());
+
+            for(int j = 0; j < TabLine.size(); j++){
+                newC.add(c.get(Integer.parseInt(TabLine.get(j))-1));
+            }
+            datafram2.add(newC);
+        }
+        printf(datafram2);
+        return datafram2;
+    }
 
 
         public void printf(ArrayList<Colonne> dat){
