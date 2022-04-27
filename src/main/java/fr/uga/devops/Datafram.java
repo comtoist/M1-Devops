@@ -131,4 +131,144 @@ public class Datafram{
         }
 
 
+        public void printf(ArrayList<Colonne> dat){
+            //On suppose que les colonnes font toutes la meme taille
+            String titleTemplate = "%-20s ";
+            int columnSize = dat.get(0).getSize();
+            int nbColonnes = dat.size();
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+            for(int i=0;i<nbColonnes;i++){
+                String label = dat.get(i).getLabel();
+                System.out.printf(titleTemplate,label+" ");
+            }
+            System.out.println();
+
+            //Affichages des colonnes            
+            for(currentLine=0;currentLine<columnSize;currentLine++){
+                for(int j=0;j<nbColonnes;j++){
+                    System.out.printf(titleTemplate,dat.get(j).get(currentLine));
+                }
+                System.out.println();
+                
+            }
+        }
+
+        //Affiche les 5 dernieres lignes
+        public void tail(){
+            String titleTemplate = "%-20s ";
+            int columnSize = datafram.get(0).getSize();
+            int nbColonnes = datafram.size();
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+            for(int i=0;i<nbColonnes;i++){
+                String label = datafram.get(i).getLabel();
+                System.out.printf(titleTemplate,label+" ");
+            }
+            System.out.println();
+
+            //Affichages des colonnes            
+            for(currentLine=columnSize-5;currentLine<columnSize;currentLine++){
+                for(int j=0;j<nbColonnes;j++){
+                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));
+                }
+                System.out.println();
+                
+            }
+
+        }
+
+        //Affiche les n dernieres lignes
+        public void tail(int n){
+            String titleTemplate = "%-20s ";
+            int columnSize = datafram.get(0).getSize();
+            int nbColonnes = datafram.size();
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+            for(int i=0;i<nbColonnes;i++){
+                String label = datafram.get(i).getLabel();
+                System.out.printf(titleTemplate,label+" ");
+            }
+            System.out.println();
+
+            //Verification index >0
+            int resOk = columnSize-n;
+            if(resOk<0){
+                resOk=0;
+            }   
+            //Affichages des colonnes    
+            for(currentLine=resOk;currentLine<columnSize;currentLine++){
+                for(int j=0;j<nbColonnes;j++){
+                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));
+                }
+                System.out.println();
+                
+            }
+
+        }
+
+        //Affiche les 5 premieres lignes
+        public void head(){
+            String titleTemplate = "%-20s ";
+            int columnSize = datafram.get(0).getSize();
+            if(columnSize>5){
+                columnSize=5;
+            }
+            int nbColonnes = datafram.size();
+            
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+            for(int i=0;i<nbColonnes;i++){
+                String label = datafram.get(i).getLabel();
+                System.out.printf(titleTemplate,label+" ");
+            }
+            System.out.println();
+
+            //Affichages des colonnes            
+            for(currentLine=0;currentLine<columnSize;currentLine++){
+                for(int j=0;j<nbColonnes;j++){
+                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));
+                }
+                System.out.println();
+                
+            }
+
+        }
+
+        //Affiche les n premieres lignes
+        public void head(int n){
+            String titleTemplate = "%-20s ";
+            int columnSize = datafram.get(0).getSize();;
+            if(n<columnSize){
+                columnSize = n;
+            }
+            int nbColonnes = datafram.size();
+            int currentLine;
+
+            //On parcours chaque ligne de chaque colonne et on l'affiche
+            //Affichage des label
+            for(int i=0;i<nbColonnes;i++){
+                String label = datafram.get(i).getLabel();
+                System.out.printf(titleTemplate,label+" ");
+            }
+            System.out.println();
+
+            //Affichages des colonnes            
+            for(currentLine=0;currentLine<columnSize;currentLine++){
+                for(int j=0;j<nbColonnes;j++){
+                    System.out.printf(titleTemplate,datafram.get(j).get(currentLine));
+                }
+                System.out.println();
+                
+            }
+
+        }
 }
