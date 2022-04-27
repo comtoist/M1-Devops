@@ -1,4 +1,5 @@
-FROM adoptopenjdk/openjdk13:jdk-13.0.1_9-slim
+FROM openjdk:8-jdk-alpine3.7 AS builder
+RUN java -version
 WORKDIR /usr/src/datafram-app
 RUN mvn compile
 RUN mvn package
