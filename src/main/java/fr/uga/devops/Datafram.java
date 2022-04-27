@@ -345,4 +345,32 @@ public class Datafram{
 		}
 		return min;
     	}
+    	
+    	public float moyenne(Colonne c) throws Exception {
+		float moyenne = 0;
+		if(c.getType().equals("Integer") || c.getType().equals("Float")){
+		    float somme = 0;
+		    int div = 0;
+		    for(int i = 0; i < c.getSize(); i++){
+		        somme = somme + Float.parseFloat(c.getLignes().get(i).toString());
+		        div++;
+		    }
+		    moyenne = somme / div;
+		}else{
+		    throw new Exception("Erreur la colonne n'est pas en Integer ou en float");
+		}
+		return moyenne;
+    	}
+
+    	public float somme(Colonne c) throws Exception {
+		float somme = 0;
+		if(c.getType().equals("Integer") || c.getType().equals("Float")){
+		    for(int i = 0; i < c.getSize(); i++){
+		        somme = somme + Float.parseFloat(c.getLignes().get(i).toString());
+		    }
+		}else{
+		    throw new Exception("Erreur la colonne n'est pas en Integer ou en float");
+		}
+		return somme;
+    	}
 }
