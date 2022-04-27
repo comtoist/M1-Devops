@@ -271,5 +271,43 @@ public class Datafram{
             }
 
 <span class="fc" id="L273">        }</span>
+        
+        public ArrayList&lt;Colonne&gt; newDatafram(ArrayList&lt;Colonne&gt; datafram, String line, String col){
+<span class="fc" id="L276">		ArrayList&lt;Colonne&gt; datafram2 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L277">		Scanner scline = new Scanner(line);</span>
+<span class="fc" id="L278">		scline.useDelimiter(&quot;,&quot;);</span>
+		String text;
+<span class="fc" id="L280">		ArrayList&lt;String&gt; TabLine = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L281" title="All 2 branches covered.">		while(scline.hasNext()){</span>
+<span class="fc" id="L282">		    text = scline.next();</span>
+<span class="fc" id="L283">		    TabLine.add(text);</span>
+		}
+
+<span class="fc" id="L286">		Scanner scCol = new Scanner(col);</span>
+<span class="fc" id="L287">		scCol.useDelimiter(&quot;,&quot;);</span>
+<span class="fc" id="L288">		ArrayList&lt;String&gt; TabIndex = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L289" title="All 2 branches covered.">		while(scCol.hasNext()){</span>
+<span class="fc" id="L290">		    text = scCol.next();</span>
+<span class="fc" id="L291">		    TabIndex.add(text);</span>
+		}
+
+<span class="fc bfc" id="L294" title="All 2 branches covered.">		for(int i = 0; i &lt; TabIndex.size(); i++){</span>
+<span class="fc" id="L295">		    int k = 0;</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">		    while(!(datafram.get(k).getLabel().equals(TabIndex.get(i)))){</span>
+<span class="fc" id="L297">		        k++;</span>
+		    }
+<span class="fc" id="L299">		    Colonne c = datafram.get(k);</span>
+<span class="fc" id="L300">		    Colonne newC = new Colonne(c.getLabel());</span>
+<span class="fc" id="L301">		    newC.setType(c.getType());</span>
+<span class="fc" id="L302">		    newC.setLabel(c.getLabel());</span>
+
+<span class="fc bfc" id="L304" title="All 2 branches covered.">		    for(int j = 0; j &lt; TabLine.size(); j++){</span>
+<span class="fc" id="L305">		        newC.add(c.get(Integer.parseInt(TabLine.get(j))-1));</span>
+		    }
+<span class="fc" id="L307">		    datafram2.add(newC);</span>
+		}
+<span class="fc" id="L309">		printf(datafram2);</span>
+<span class="fc" id="L310">		return datafram2;</span>
+	    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
