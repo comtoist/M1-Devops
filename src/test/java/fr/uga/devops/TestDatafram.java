@@ -90,6 +90,83 @@ public class TestDatafram {
     //         e.printStackTrace();
     //     }
     // }
+
+    @Test
+	public void integerPrint(){
+            Integer[] tab = {1,2,3};
+            Datafram d = new Datafram(tab,"Chiffre");
+            d.printf(d.datafram);
+	}
+	
+	@Test
+	public void stringPrint(){
+	    String[] strings = {"Salut","Bonjour","Coucou"};
+            Datafram ds = new Datafram(strings,"Chaine de caracteres");
+            ds.printf(ds.datafram);
+	}
+
+	@Test
+	public void integerAndString() throws Exception{
+		try{
+
+			Integer[] tab = {1,2,3};
+			String[] strings = {"Salut","Bonjour","Coucou"};
+			Object[][] objs = {tab,strings};
+            String[] labels = {"Chiffre","Chaine de caracteres"};
+            String[] types = {"Integer","String"};
+            Datafram dob = new Datafram(objs,labels,types);
+            System.out.println();
+            dob.printf(dob.datafram); 
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+    @Test
+	public void testHeadNoArgs(){
+	    Integer[] tab = {1,2,3,4,5};
+        Datafram d = new Datafram(tab,"Chiffre");
+	    d.head();
+	}
+
+    @Test
+	public void testTailNoArgs(){
+	    Integer[] tab = {1,2,3,4,5};
+        Datafram d = new Datafram(tab,"Chiffre");
+	    d.tail();
+	}
+	
+	
+	@Test
+	public void testHeadOk(){
+	    Integer[] tab = {1,2,3};
+            Datafram d = new Datafram(tab,"Chiffre");
+	    d.head(1);
+	}
+
+	@Test
+	public void testHeadOverflow(){
+	    Integer[] tab = {1,2,3};
+            Datafram d = new Datafram(tab,"Chiffre");
+	    d.head(9);
+	}
+
+	@Test
+	public void testTailOk(){
+	    Integer[] tab = {1,2,3};
+            Datafram d = new Datafram(tab,"Chiffre");
+	    d.tail(1);
+	}
+
+	@Test
+	public void testTailOverflow(){
+	    Integer[] tab = {1,2,3};
+            Datafram d = new Datafram(tab,"Chiffre");
+	    d.tail(9);
+	}
+
+
         
         
 }
+

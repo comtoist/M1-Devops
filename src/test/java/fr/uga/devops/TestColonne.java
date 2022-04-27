@@ -68,6 +68,44 @@ public class TestColonne{
     }
 
 
+    @Test
+    public void add(){
+        col.add("Toto");
+        assertTrue(col.getLignes().contains("Toto"));
+    }
+    
+    @Test
+    public void add2args(){
+        col.add("premier");
+        col.add("troisieme");
+
+        col.add(1,"deuxieme");
+        assertEquals("deuxieme",col.getLignes().get(1));
+    }
+
+    @Test
+    public void get(){
+        col.add("premier");
+        col.add("troisieme");
+        col.add(1,"deuxieme");
+        assertEquals("premier",col.getLignes().get(0));
+    }
+
+    @Test
+    public void setLabel(){
+        col.setLabel("Totu");
+        assertEquals("Totu",col.getLabel());
+    }
+
+    @Test
+    public void setType(){
+        col.setType("Integer");
+        assertEquals("Integer",col.getType());
+    }
+
+
+
+
     
    
 
