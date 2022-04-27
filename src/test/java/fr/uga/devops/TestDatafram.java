@@ -1,6 +1,7 @@
 package fr.uga.devops;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 public class TestDatafram {
     public Datafram data;
@@ -186,7 +187,7 @@ public class TestDatafram {
     	
     	@Test
     	public void newDataframTestWithInteger() throws Exception{
-		Datafram d = new Datafram("src/main/resources/csvTest3.csv");
+		Datafram da = new Datafram("src/main/resources/csvTest3.csv");
 		ArrayList<Colonne> d2 = da.newDatafram(da.datafram, "1,2,4,5", "Nom,prenom,age");
 		Datafram d3 = new Datafram("src/main/resources/newDataframTestInteger.csv");
 
