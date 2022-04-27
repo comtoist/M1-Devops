@@ -211,7 +211,7 @@ public class TestDatafram {
         public void maximumTest() throws Exception{
         	Datafram d = new Datafram("src/main/resources/csvTest2.csv");
         	float max = d.maximum(d.datafram.get(3));
-        	assertEquals(65, max);
+        	assertEquals(65, max, 0);
     	}
 	
 	//Ce test ne passe pas sur github
@@ -226,7 +226,7 @@ public class TestDatafram {
     	public void minimumTest() throws Exception{
     		Datafram d = new Datafram("src/main/resources/csvTest2.csv");
         	float min = d.minimum(d.datafram.get(3));
-        	assertEquals(15, min);
+        	assertEquals(15, min, 0);
     	}
 
 	//Ce test ne passe pas sur github
