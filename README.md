@@ -135,3 +135,9 @@ Renvoie la moyenne de la colonne d'Integer *c*.
 float somme(Colonne c)
 ```
 Renvoie la somme de la colonne d'Integer *c*.
+
+## Choix des outils
+
+On a utilisé maven pour la compilation, le packaging et le test automatique.
+On a utilisé le workflow des features branchs car c'est un workflow adapté au petit projet n'ayant pas besoin de release.
+Pour la couverture de code nous avons utilisé jacoco comme conseillé, ce qui nous permet d'avoir des rapports sur le code coverage sous différent format. 
