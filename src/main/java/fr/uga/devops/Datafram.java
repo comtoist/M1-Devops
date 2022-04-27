@@ -312,4 +312,111 @@ public class Datafram{
 		printf(datafram2);
 		return datafram2;
        }
+
+       private Datafram(){
+        datafram = new ArrayList<Colonne>();
+    }
+
+    private void addCol(Colonne col){
+        datafram.add(col);
+    }
+
+    public Datafram getSubFram(ArrayList<Integer> listeLigne){
+        Datafram sub = new Datafram();
+        for(int i = 0; i < datafram.size(); i++){
+            Colonne col = new Colonne();
+            col.setLabel(datafram.get(i).getLabel());
+            col.setType(datafram.get(i).getType());
+            for(int j = 0; j < listeLigne.size(); j++){
+                col.add(datafram.get(i).get(listeLigne.get(j)));
+            }
+            sub.addCol(col);
+        }
+        return sub;
+    }
+
+    public Datafram GroupBy(String op, String col, ArrayList<String> constante){
+        int numCol = -1;
+        int i = 0;
+        ArrayList<Integer> listeLigne = new ArrayList<>();
+        while(numCol < 0 && i < datafram.size()){
+            if(col.equals(datafram.get(i).getLabel())){
+                numCol = i;
+            }
+            i++;
+        }
+        if(i == datafram.size()){
+            return getSubFram(new ArrayList<Integer>());
+        }
+        try{
+            if(op.equals("=")){
+                listeLigne = datafram.get(numCol).IsIn(constante);
+            }else{
+                listeLigne = datafram.get(numCol).IsNotIn(constante);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return getSubFram(listeLigne);
+    }
+
+    public Datafram GroupBy(String op, String col, Integer constante){
+        int numCol = -1;
+        int i = 0;
+        ArrayList<Integer> listeLigne = new ArrayList<>();
+        while(numCol < 0 && i < datafram.size()){
+            if(col.equals(datafram.get(i).getLabel())){
+                numCol = i;
+            }
+            i++;
+        }
+        if(i == datafram.size()){
+            return getSubFram(new ArrayList<Integer>());
+        }
+        try{
+            listeLigne = datafram.get(numCol).GroupByComp(op,constante);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return getSubFram(listeLigne);
+    }
+
+    public void printf(){
+        ArrayList<Colonne> dat = datafram;
+        //On suppose que les colonnes font toutes la meme taille
+        String titleTemplate = "%-20s ";
+        int columnSize = dat.get(0).getSize();
+        int nbColonnes = dat.size();
+        int currentLine;
+
+        //On parcours chaque ligne de chaque colonne et on l'affiche
+        //Affichage des label
+        for(int i=0;i<nbColonnes;i++){
+            String label = dat.get(i).getLabel();
+            System.out.printf(titleTemplate,label+" ");
+        }
+        System.out.println();
+
+        //Affichages des colonnes            
+        for(currentLine=0;currentLine<columnSize;currentLine++){
+            for(int j=0;j<nbColonnes;j++){
+                System.out.printf(titleTemplate,dat.get(j).get(currentLine));
+            }
+            System.out.println();
+            
+        }
+    }
+
+    @Override
+    public boolean equals(Object dat){
+        boolean res = true;
+        if(datafram.size()==((Datafram)dat).datafram.size()){
+            for(int i=0; i < datafram.size(); i++){
+                if(!datafram.get(i).equals(((Datafram)dat).datafram.get(i))){
+                    res = false;
+                }
+            }
+        }
+        return res;
+    }
 }
