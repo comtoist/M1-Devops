@@ -2,7 +2,6 @@ package fr.uga.devops;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class TestDatafram {
     public Datafram data;
