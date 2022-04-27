@@ -73,6 +73,66 @@ public class Colonne<E>{
     public String getType(){
         return type;
     }
- 
+
+    public ArrayList<Integer> GroupByComp(String comp, Integer val) throws Exception{
+        ArrayList<Integer> group = new ArrayList<Integer>();
+        if(type.equals("Integer")){
+            for(int i=0; i<lignes.size(); i++){
+                if(comp.equals(">") && (Integer)lignes.get(i) > val){
+                    group.add(i);
+                }else if(comp.equals(">=") && (Integer)lignes.get(i) >= val){
+                    group.add(i);
+                }else if(comp.equals("<") && (Integer)lignes.get(i) < val){
+                    group.add(i);
+                }else if(comp.equals("<=") && (Integer)lignes.get(i) <= val){
+                    group.add(i);
+                }else if(comp.equals("=") && (Integer)lignes.get(i) == val){
+                    group.add(i);
+                }else if(comp.equals("!=") && (Integer)lignes.get(i) != val){
+                    group.add(i);
+                }
+            }
+        }else{
+            throw new Exception("Mauvais type dans la colonne");
+        }
+        return group;
+    }
+
+    public ArrayList<Integer> IsIn(ArrayList<E> liste){
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        for(int nbElemListe=0; nbElemListe < liste.size(); nbElemListe++){
+            for(int i = 0; i < lignes.size(); i++){
+                if(lignes.get(i).equals(liste.get(nbElemListe))){
+                    res.add(i);
+                }
+            }
+        }
+        return res;
+    }
+
+    public ArrayList<Integer> IsNotIn(ArrayList<E> liste){
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        for(int nbElemListe=0; nbElemListe < liste.size(); nbElemListe++){
+            for(int i = 0; i < lignes.size(); i++){
+                if(!lignes.get(i).equals(liste.get(nbElemListe))){
+                    res.add(i);
+                }
+            }
+        }
+        return res;
+    }
+
+    public boolean equals(Colonne<E> col){
+        boolean res = true;
+        if(label.equals(col.label) && 
+            type.equals(col.type) && lignes.size() == col.lignes.size()){
+            for(int i=0; i < lignes.size(); i++){
+                if(!lignes.get(i).equals(col.lignes.get(i))){
+                    res = false;
+                }
+            }
+        }
+        return res;
+    }
 
 }
