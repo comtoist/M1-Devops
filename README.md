@@ -51,4 +51,87 @@ Crée un data frame contenant une colonne *label* avec *tab* comme contenu.
 Datafram(Object[][] tab,String[] label,String[] type)
 ```
 Crée un data frame contenant plusieurs colonnes portant comme nom *label* avec *type* comme type et *tab* comme contenu.
-*label* et *type* doivent être de la même taille
+*label* et *type* doivent être de la même taille.
+
+```sh
+Datafram(String filename)
+```
+Crée un data frame grace au fichier au format csv qui a pour chemin relatif *filename*.
+
+```sh
+void printf(ArrayList<Colonne> dat)
+```
+Affiche le data frame formé des colonnes *dat*.
+
+```sh
+void tail()
+```
+Affiche les 5 dernières lignes du data frame.
+
+```sh
+void tail(int n)
+```
+Affiche les *n* dernières lignes du data frame.
+
+```sh
+void head()
+```
+Affiche les 5 premières lignes du data frame.
+
+```sh
+void head(int n)
+```
+Affiche les n premières lignes du data frame.
+
+```sh
+ArrayList<Colonne> newDatafram(ArrayList<Colonne> datafram, String line, String col)
+```
+Crée un nouveau data frame en utilisant les lignes d'index *line* et les colonnes de label *col* depuis le data frame *datafram*.
+
+```sh
+Datafram getSubFram(ArrayList<Integer> listLigne)
+```
+Crée un sous data frame en utilisant les lignes d'index à l'intérieur de *listLigne*
+
+```sh
+Datafram GroupBy(String op, String col, ArrayList<String> constante)
+```
+Crée un sous data frame en fonction de la valeur dans la colonne *col* de chaque ligne.
+Si *op* vaut "=" alors seule les lignes ayant une valeur dans *col* aussi présente dans *constante* seront sélectionnées.
+Sinon seule les lignes qui n'ont pas de valeur dans col sont sélectionnées.
+
+```sh
+Datafram GroupBy(String op, String col, Integer constante)
+```
+Crée un sous data frame en fonction de la valeur dans la colonne *col* de chaque ligne.
+*op* peut prendre les valeurs "<", "<=", ">", ">=", "=" ou "!=".
+
+```sh
+void printf()
+```
+Affiche le data frame.
+
+```sh
+Boolean equals(Object dat)
+```
+Renvoie *true* si dat est le même data frame.
+
+```sh
+float maximum(Colonne c)
+```
+Renvoie le maximum de la colonne d'Integer *c*.
+
+```sh
+float minimum(Colonne c)
+```
+Renvoie le minimum de la colonne d'Integer *c*.
+
+```sh
+float moyenne(Colonne c)
+```
+Renvoie la moyenne de la colonne d'Integer *c*.
+
+```sh
+float somme(Colonne c)
+```
+Renvoie la somme de la colonne d'Integer *c*.
