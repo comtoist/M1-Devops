@@ -60,11 +60,11 @@
     <property name="java.vendor.version" value="Temurin-11.0.14.1+1"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="fr.uga.devops.TestColonne" name="DoubleArgsConstructor" time="0.003"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="getLabelTest" time="0.001"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorString" time="0.002"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="NoArgConstructor" time="0.008"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="getSizeTest" time="0.001"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="DoubleArgsConstructor" time="0"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorString" time="0"/>
   <testcase classname="fr.uga.devops.TestColonne" name="TripleArgsConstructorInteger" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="getSizeTest" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="NoArgConstructor" time="0"/>
-  <testcase classname="fr.uga.devops.TestColonne" name="getType" time="0.003"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="getLabelTest" time="0"/>
+  <testcase classname="fr.uga.devops.TestColonne" name="getType" time="0"/>
 </testsuite>
