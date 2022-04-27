@@ -2,25 +2,60 @@ package fr.uga.devops;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.lang.reflect.Method;
 import java.util.Scanner;
-//https://stackoverflow.com/questions/13569232/how-to-parse-a-string-variable-into-any-data-type-in-java
 public class Datafram{
 
     ArrayList<Colonne> datafram;
 
-    public Datafram(ArrayList<ArrayList<Object>> contenu){
-        datafram = new ArrayList<Colonne>();
-        for(int i=0;i<contenu.size();i++){
-            Colonne<Object> col = new Colonne(contenu.get(i).get(0).toString());
-            for(int j=0;j<contenu.get(i).size();j++){
-                col.add(contenu.get(i).get(j));
-            }
-            datafram.set(i,col);
+    public Datafram(Integer[] tab,String label){
+        Colonne col;
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        for(int i=0;i<tab.length;i++){
+            arr.add(tab[i]);
         }
+        col = new Colonne(label,"Integer",arr);
+        datafram = new ArrayList<Colonne>();        
+        datafram.add(col);
     }
 
+    public Datafram(String[] tab,String label){
+        Colonne col;
+        ArrayList<String> arr = new ArrayList<String>();
+        for(int i=0;i<tab.length;i++){
+            arr.add(tab[i]);
+        }
+        col = new Colonne(label,"String",arr);
+        datafram = new ArrayList<Colonne>();        
+        datafram.add(col);
+    }
+
+    public Datafram(Object[][] tab,String[] label,String[] type) throws Exception{
+        Colonne col;
+        datafram = new ArrayList<Colonne>(); 
+        for(int i=0;i<tab.length;i++){
+            if(type[i].equals("Integer")){
+                ArrayList<Integer> arr = new ArrayList<Integer>();
+                for(int j=0;j<tab[i].length;j++){
+                    arr.add((Integer)tab[i][j]);
+                }
+                col = new Colonne(label[i],"Integer",arr);
+                datafram.add(col);
+            }else if(type[i].equals("String")){
+                ArrayList<String> arr = new ArrayList<String>();
+                for(int j=0;j<tab[i].length;j++){
+                    arr.add((String)tab[i][j]);
+                }
+                col = new Colonne(label[i],"String",arr);
+                datafram.add(col);
+            }else{
+                throw new Exception("Type non supporte");
+            }
+            
+        }
+    }
 
     public Datafram(String filename){
         try{
@@ -42,7 +77,6 @@ public class Datafram{
                 //System.out.println(line);
             while(scLine.hasNext()){
                 text = scLine.next();
-                System.out.println("Text = "+text);
                 Colonne col;
                 if(text.equals("String")){
                     col = new Colonne<String>();
@@ -51,7 +85,6 @@ public class Datafram{
                     col.setType("Integer");
                     
                 }else{
-                    System.out.println("Type non reconnu");
                     col = new Colonne<>();
                 }
                 datafram.add(col);
@@ -66,7 +99,6 @@ public class Datafram{
             scLine.useDelimiter(",");
             while(scLine.hasNext()){
                 text = scLine.next();
-                System.out.println(text);
                 Colonne col = datafram.get(i);
                 col.setLabel(text);
                 i++;
@@ -78,7 +110,6 @@ public class Datafram{
 
             while(sc.hasNext()){
                 text = sc.next();
-                System.out.println(text);
                 if(i == nbCol){
                     i=0;
                 }
@@ -98,8 +129,6 @@ public class Datafram{
             e.printStackTrace();
         }
         }
-        
-        
-        
-    
+
+
 }

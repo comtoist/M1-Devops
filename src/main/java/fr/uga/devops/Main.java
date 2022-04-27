@@ -3,19 +3,30 @@ package fr.uga.devops;
 public class Main{
 
     public static void main(String[] args) {
-        Datafram d = new Datafram("/home/c/comtoist/M1/S2/Devops/Devops/datafram-app/src/main/resources/csvTest.csv");
-        System.out.println("C'est bien construit");
-        //     ArrayList<Object> b = new ArrayList<>();
-        //     b.add(1);
-        //     b.add("toto");
-        
-        // System.out.println(b.get(0));
-        // System.out.println(b.get(1));
-        // Class<?> cls = Class.forName("java.lang.String");
-        // String clsIntance = (String) cls.getDeclaredConstructor().newInstance();
-        // //clsInstance = "bonjour";
-        // System.out.println(clsIntance);
-        
+        try{
+
+            Datafram d = new Datafram("src/main/resources/csvTest.csv");
+            Integer[] tab = {1,2,3};
+            //Datafram d = new Datafram(tab,"Chiffre");
+            
+            System.out.println();
+                
+            String[] strings = {"Salut","Bonjour","Coucou"};
+            Datafram ds = new Datafram(strings,"Chaine de caracteres");
+            
+            System.out.println();
+            
+            
+            Object[][] objs = {tab,strings};
+            String[] labels = {"Chiffre","Chaine de caracteres"};
+            String[] types = {"Integer","String"};
+            Datafram dob = new Datafram(objs,labels,types);
+           
+            System.out.println();
+             
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         
     }
 }

@@ -14,12 +14,22 @@ public class Colonne<E>{
     }
     public Colonne(String lab){
         label = lab;
+        type = "String";
         lignes = new ArrayList<>();
     }
 
     public Colonne(String lab,ArrayList<E> lig){
         label = lab;
+        type = "String";
         lignes = lig;
+    }
+
+    public Colonne(String lab,String typ,ArrayList arr){
+        label = lab;
+        if(typ.equals("Integer") || typ.equals("String")){
+            type = typ;
+        }
+        lignes = arr;
     }
 
     public Object get(int i){
@@ -34,6 +44,9 @@ public class Colonne<E>{
         lignes.add(i,o);
     }
 
+    public void set(int i,E o){
+        lignes.set(i,o);
+    }
     public int getSize(){
         return lignes.size();
     }

@@ -1,6 +1,7 @@
 package fr.uga.devops;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.*;
 
 public class TestColonne{
     public Colonne col;
@@ -9,6 +10,38 @@ public class TestColonne{
     public void setUp() throws Exception{
         col = new Colonne("test");
     }
+
+    @Test
+    public void NoArgConstructor(){
+        Colonne col2 = new Colonne();
+    }
+
+    @Test
+    public void DoubleArgsConstructor(){
+        Colonne col2 = new Colonne("Toto");
+        assertEquals("Toto",col2.getLabel());
+        assertEquals("String",col2.getType());
+    }
+
+    @Test
+    public void TripleArgsConstructorString(){
+        ArrayList<String> strArr = new ArrayList<String>(); 
+        Colonne col2 = new Colonne("Toto","String",strArr);
+        assertEquals("Toto",col2.getLabel());
+        assertEquals("String",col2.getType());
+       
+    }
+
+    @Test
+    public void TripleArgsConstructorInteger(){
+        ArrayList<String> intArr = new ArrayList<String>();
+        Colonne col2 = new Colonne("Toto","Integer",intArr);
+        assertEquals("Integer",col2.getType());
+        assertTrue(!"String".equals(col2.getType()));
+
+    }
+    
+
 
     @Test 
     public void getLabelTest() throws Exception{
@@ -27,5 +60,18 @@ public class TestColonne{
         col.add("gkgk");
         assertEquals(3,col.getSize());
     }
+
+    @Test
+    public void getType(){
+        System.out.println(col.getType());
+        assertEquals("String",col.getType());
+    }
+
+
+    
+   
+
+    
+
 
 }
