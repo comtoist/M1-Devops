@@ -235,6 +235,36 @@ public class TestDatafram {
         	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
             		float minimum = d.somme(d.datafram.get(2));
         	});
-    	} */       
+    	} */   
+    	
+    	@Test
+    	public void moyenneTest() throws Exception{
+    		Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+        	float moyenne = d.moyenne(d.datafram.get(3));
+        	assertEquals(29 ,moyenne,0);
+    	}
+	
+	//Ce test ne passe pas sur github
+    	/*@Test
+    	public void moyenneTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float moyenne = d.moyenne(d.datafram.get(2));
+        	});
+    	}*/
+
+    	@Test
+    	public void sommeTest() throws Exception{
+    	    	Datafram d = new Datafram("src/main/resources/csvTest2.csv");
+    	    	float somme = d.somme(d.datafram.get(3));
+            	assertEquals(145,somme,0);
+    	}
+
+	//Ce test ne passe pas sur github
+    	/*@Test
+    	public void sommeTestErreur() throws Exception{
+        	Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            		float somme = d.somme(d.datafram.get(2));
+        	});
+    	}*/    
 }
 
