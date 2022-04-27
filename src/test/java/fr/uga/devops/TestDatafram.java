@@ -210,6 +210,7 @@ public class TestDatafram {
 	 
 	@Test
         public void maximumTest() throws Exception{
+        	Datafram d = new Datafram("src/main/resources/csvTest2.csv");
         	float max = d.maximum(d.datafram.get(3));
         	assertEquals(65, max);
     	}
@@ -224,6 +225,7 @@ public class TestDatafram {
 
     	@Test
     	public void minimumTest() throws Exception{
+    		Datafram d = new Datafram("src/main/resources/csvTest2.csv");
         	float min = d.minimum(d.datafram.get(3));
         	assertEquals(15, min);
     	}
