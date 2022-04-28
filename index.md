@@ -1,3 +1,6 @@
+# M1-Devops
+[![Java CI with Maven](https://github.com/comtoist/M1-Devops/actions/workflows/maven.yml/badge.svg)](https://github.com/comtoist/M1-Devops/actions/workflows/maven.yml)
+
 ## Fonctionnalité
 
   - Creation de data frame en utilisant :
@@ -136,5 +139,15 @@ Renvoie la somme de la colonne d'Integer *c*.
 ## Choix des outils
 
 On a utilisé maven pour la compilation, le packaging et le test automatique.
+Le résultat des tests se trouve dans surefire-report, en format txt ou en xml.
+
 On a utilisé le workflow des features branchs car c'est un workflow adapté au petit projet n'ayant pas besoin de release.
-Pour la couverture de code nous avons utilisé jacoco comme conseillé, ce qui nous permet d'avoir des rapports sur le code coverage sous différent format. 
+Pour la validation des pull request, nous avons fait valider nos pull request par une autre personne que celle qui a fait la pull request. Le processus de validation était de s'assurer que les tests unitaires fonctionnent bien, lire les modifications fichier par fichier et valider. Ensuite quand cela est fait, le merge passe une nouvelle fois par le pipeline et si tout est validé, alors on accepte la pull request.
+
+Pour la couverture de code nous avons utilisé jacoco comme conseillé, ce qui nous permet d'avoir des rapports sur le code coverage sous différents formats. 
+Le résultat de la couverture de code se trouve dans target/site/jacoco sous différents formats.
+
+## feedback
+
+Nous avons beaucoup appris sur les différents outils utilisés dans ce projet notamment sur le workflow git, les pull_requests et sur les pipelines.
+Nous sommes un peu déçu de ne pas avoir réussi à mettre en place docker. Nous avons fait un Dockerfile qui est encore à la racine du dépot si vous souhaitez le voir, mais celui ne fonctionne pas. Nous avons également mis en place le username et le token pour docker hub dans les settings du dépot git.
